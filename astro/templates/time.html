@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/transforms.css') }}">
+    <title>Time Conversions</title>
+  </head>
+  <body>
+    {% extends "layout.html" %}
+    {% block content %}
+    
+    <section>
+      <!-- each div is a grid cell -->
+      <div><h1> About Time Conversions </h1></div>
+      <div><p> Flask is a micro web framework written in Python.</p></div>
+      <div><p> Applications that use the Flask framework include Pinterest,
+        LinkedIn, and the community web page for Flask itself.</p></div>
+      <div></div>
+
+      <div>
+        {% if result %}
+          <p>Enter Calendar Date:</p>
+            <form action="{{ url_for('main.time') }}" method ="POST">
+                        {% if calc=="CAL2JD" %}
+                          <p><input name="year" placeholder= {{inputdate[0]}} /> year</p>
+                          <p><input name="month" placeholder= {{inputdate[1]}} /> month</p>
+                          <p><input name="day" placeholder= {{inputdate[2]}} /> day</p>
+                          <p><input name="hour" placeholder= {{inputdate[3]}} /> hour</p>
+                          <p><input name="minute" placeholder= {{inputdate[4]}} /> minute</p>
+                          <p><input name="second" placeholder= {{inputdate[5]}} /> second</p>
+                          {{ inputdate }}
+                        {% else %}
+                          <p><input name="year" placeholder= {{result[0]}} /> year</p>
+                          <p><input name="month" placeholder= {{result[1]}} /> month</p>
+                          <p><input name="day" placeholder= {{result[2]}} /> day</p>
+                          <p><input name="hour" placeholder= {{result[3]}} /> hour</p>
+                          <p><input name="minute" placeholder= {{result[4]}} /> minute</p>
+                          <p><input name="second" placeholder= {{result[5]}} /> second</p>
+                          {{ result }}
+                        {% endif %}
+                        <p><input type="submit" name="action" value="CAL to Mod Julian" /></p>
+                    </form>
+          </div>
+          <div>
+            <p>Enter Julian Date:</p>
+            <form action="{{ url_for('main.time') }}" method ="POST">
+              {% if calc=="CAL2JD" %}
+                <p><input name="JD" placeholder= {{result}} /> julian date</p>
+                {{ result }}
+              {% else %}
+                <p><input name="JD" placeholder= {{inputdate}} /> julian date</p>
+              {% endif %}
+              <p><input type="submit" name="action" value="Julian to CAL" /></p>
+            </form>
+        {% else %}
+          <p>Enter Calendar Date:</p>
+          <form action="{{ url_for('main.time') }}" method ="POST">
+                      <p><input name="year" placeholder= "enter year" /> year</p>
+                      <p><input name="month" placeholder= "enter month" /> month</p>
+                      <p><input name="day" placeholder= "enter day" /> day</p>
+                      <p><input name="hour" placeholder= "enter hour" /> hour</p>
+                      <p><input name="minute" placeholder= "enter minute" /> minute</p>
+                      <p><input name="second" placeholder= "enter second" /> second</p>
+                      <p><input type="submit" name="action" value="CAL to Mod Julian" /></p>
+                  </form>
+        </div>
+        <div>
+          <p>Enter Julian Date:</p>
+          <form action="{{ url_for('main.time') }}" method ="POST">
+                      <p><input name="JD" placeholder= "enter julian date" /> julian date</p>
+                      <p><input type="submit" name="action" value="Julian to CAL" /></p>
+                  </form>
+        {% endif %}
+
+
+
+        
+      </div>
+      </div>
+      <div></div>
+      <div></div>
+
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+
+    </section>
+
+      
+    {% endblock %}
+  </body>
+</html>

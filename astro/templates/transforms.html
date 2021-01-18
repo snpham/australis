@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>About Transforms</title>
+  </head>
+  <body>
+    {% extends "layout.html" %}
+    {% block content %}
+    
+    <section>
+      <!-- each div is a grid cell -->
+      <div><h1> About Transforms </h1></div>
+      <div><p> Flask is a micro web framework written in Python.</p></div>
+      <div><p> Applications that use the Flask framework include Pinterest,
+        LinkedIn, and the community web page for Flask itself.</p></div>
+      <div></div>
+
+      <div>
+        {% if errors %}
+          {% for error in errors %}
+          <p>'{{ error }}' is not a number</p>
+          {% endfor %}
+        {% elif result %}
+          <p> The result is {{ result }}</p>
+        {% endif %}
+
+        <p>Enter your numbers:</p>
+        <form action="{{ url_for('main.transforms') }}" method ="POST">
+                    <p><input name="number1" /></p>
+                    <p><input name="number2" /></p>
+                    <p><input type="submit" name="action" value="Add" /></p>
+                    <p><input type="submit" name="action" value="Multiply" /></p>
+                </form>
+      </div>
+      <div></div>
+      <div></div>
+      <div></div>
+
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+
+    </section>
+
+      
+    {% endblock %}
+  </body>
+</html>

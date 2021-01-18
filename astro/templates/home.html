@@ -1,4 +1,48 @@
-{% extends "layout.html" %}
+{% extends 'layout.html' %}
+
+{% block background %}
+<style>
+    body {
+      background-image: url("{{ url_for('static', filename='images/lunar.jpg') }}");
+      height: 100%; 
+      /* Create the parallax scrolling effect */
+      background-attachment: fixed;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      }
+  </style>
+{% endblock %}
+
+
 {% block content %}
-    <h1>Bonjour!</h1>
-{% endblock content %}
+  <!-- <div class="item-welcome">
+      <h1 class="welcome">{% block title %} Welcome to Australis Cloud {% endblock %}</h1>
+    </div> -->
+    
+    <section>
+
+    <div class="item-textwriter">	
+        <h1 class="typewrite typer" data-period="2000" 
+        data-type='[ "envision..",  "believe..", "persevere..", ".. per aspera ad astra" ]'>
+        </h1>
+    </div>
+
+    <div class="item-name">	 
+        <h1 class="name"><b>son pham</b></h1>
+        <h1 class="name-title">
+        <b>space mission design</b><br>
+        jacobs space exploration group</h1>
+    </div>
+
+
+    </section>
+
+
+
+
+
+    <a href="#" class="bounce"></a>
+
+
+{% endblock %}

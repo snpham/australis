@@ -1,0 +1,132 @@
+
+/* create CS grids */
+section {
+    display: grid;
+    width: (100vw - 10px);
+    height: 100vh;
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+  }
+
+/* set root color */
+:root {
+    --brandColor: white;
+  }
+
+/* set navigation bar color */
+.navbar-custom {
+    background-color: #1b1f29;
+    opacity: 96%;
+}
+
+/* create boucing arrow at bottom of screen */
+.bounce {
+    position:fixed;
+    left:50%;
+    bottom:0;
+    margin-top:-25px;
+    margin-left:-25px;
+    height:50px;
+    width:50px;
+    background: url('../images/Arrow.png');
+    background-size: 100% auto;
+    -webkit-animation:bounce 1s infinite;
+    -moz-animation:bounce 1s infinite;
+    -o-animation:bounce 1s infinite;
+    animation:bounce 1s infinite;
+  
+  }
+
+/* welcome text grid location */
+.item-welcome {
+    grid-area: 1 / 2 / span 1 / span 2;
+}
+
+/* typewriter text grid location */
+.item-textwriter {
+    grid-area: 2 / 2 / span 1 / span 2;
+}
+
+/* welcome text format */
+.welcome {
+  font-size: 46px;
+  /* position: absolute; */
+  top: 5%;
+  left: 50%;
+  font-weight: 100;
+  color: var(--brandColor);
+  text-align: center;
+  font-family: 'Questrial', sans-serif;
+  text-decoration: none;
+}
+
+/* typewriter text format */
+.typer {
+    font-size: 34px;
+    /* position: absolute; */
+    top: 5%;
+    left: 50%;
+    font-weight: 100;
+    color: var(--brandColor);
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    text-decoration: none;
+}
+
+/* author name text */
+.item-name {
+    grid-area: 3 / 2 / span 1 / span 2;
+  }
+
+/* author name text */
+.name {
+    /* position: absolute; */
+    text-align: center;
+    font-size: 120px;
+    color: var(--brandColor);
+    font-family: 'Questrial', sans-serif;
+  }
+  
+/* author title and company */
+.name-title {
+  color: black;
+  text-align: center;
+  font-size: 40px;
+  margin-top: -20px;
+  font-family: 'Roboto', sans-serif;
+}
+
+
+
+/* set bouncing arrow viewing settings */
+@media only screen and (max-width: 1023px) {
+    .bounce {
+        display: none;
+    }
+}
+
+@-webkit-keyframes bounce {
+0%       { bottom:0px; }
+50%      { bottom:15px; }
+100%     {bottom:30;}
+}
+
+@-moz-keyframes bounce {
+0%       { bottom:0px; }
+50%      { bottom:15px; }
+100%     {bottom:30;}
+}
+
+@-o-keyframes bounce {
+0%       { bottom:0px; }
+50%      { bottom:15px; }
+100%     {bottom:30;}
+}
+
+@keyframes bounce {
+0%       { bottom:0px; }
+50%      { bottom:15px; }
+100%     {bottom:30;}
+}
