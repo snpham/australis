@@ -60,7 +60,7 @@ def time():
             return render_template('time.html', errors=errors, result=result, inputdate=caldate, calc='CAL2JD')
         elif request.form["action"] == "Julian to CAL":
             jd = float(request.form["JD"])
-            date = date_from_jd(jd)
+            date = cal_from_jd(jd)
             result = date
             return render_template('time.html', errors=errors, result=result, inputdate=jd, calc='JD2CAL')
     return render_template('time.html')
